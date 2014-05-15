@@ -20,21 +20,23 @@ module.exports = function (grunt) {
       options: {
         accessKeyId: '<%= aws.AWSAccessKeyId %>', // Use the variables
         secretAccessKey: '<%= aws.AWSSecretKey %>', // You can also use env variables
-        region: 'eu-west-1',
+        region: 'us-west-1',
         uploadConcurrency: 5, // 5 simultaneous uploads
         downloadConcurrency: 5 // 5 simultaneous downloads
       },
       production: {
         options: {
-          bucket: 'maybe.ventures'
+          bucket: 'maybe.ventures',
+          access: 'private',
           params: {
             ContentEncoding: 'gzip' // applies to all the files!
           }
         },
         files: [
-          //{expand: true, cwd: '', src: ['**'], dest: 'app/'},
+          {expand: true, cwd: 'site/',  dest: '', src: ['**']}
+        ]
+      },
     },
-  },
     yeoman: yeomanConfig,
     connect: {
       server: {
