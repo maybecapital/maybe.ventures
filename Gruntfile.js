@@ -15,6 +15,26 @@ module.exports = function (grunt) {
   } catch (e) {}
 
   grunt.initConfig({
+    aws: grunt.file.readJSON('aws.json'),
+    aws_s3: {
+      options: {
+        accessKeyId: '<%= aws.AWSAccessKeyId %>', // Use the variables
+        secretAccessKey: '<%= aws.AWSSecretKey %>', // You can also use env variables
+        region: 'eu-west-1',
+        uploadConcurrency: 5, // 5 simultaneous uploads
+        downloadConcurrency: 5 // 5 simultaneous downloads
+      },
+      production: {
+        options: {
+          bucket: 'maybe.ventures'
+          params: {
+            ContentEncoding: 'gzip' // applies to all the files!
+          }
+        },
+        files: [
+          //{expand: true, cwd: '', src: ['**'], dest: 'app/'},
+    },
+  },
     yeoman: yeomanConfig,
     connect: {
       server: {
@@ -29,5 +49,9 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', [
     'connect:server:keepalive'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'aws_s3'
   ]);
 };
