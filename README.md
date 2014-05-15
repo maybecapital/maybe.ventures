@@ -1,6 +1,10 @@
 # Maybe Ventures
-## Site is hosted on github. 
-This means anything you push here goes live
+## Site is hosted on s3.
+
+After adding your secret keys to the aws-key.json file, deploy using 
+```
+grunt deploy
+```
 
 ## Dev Tools
 There's a standardish bower/npm/grunt setup going on here.  You don't need to use it, but if you have a standard node setup and run
