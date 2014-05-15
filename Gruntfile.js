@@ -27,7 +27,7 @@ module.exports = function (grunt) {
       production: {
         options: {
           bucket: 'maybe.ventures',
-          access: 'private',
+          access: 'public',
           params: {
             ContentEncoding: 'gzip' // applies to all the files!
           }
