@@ -1,0 +1,12 @@
+{
+  "name": "maybe.ventures",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.15",
+    "underscore": "~1.6.0"
+  }
+}
